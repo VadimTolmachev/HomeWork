@@ -1,3 +1,4 @@
+# СПИСОК
 food = ["apple", "coconud", "banana"]
 print(food)
 print(food[0])
@@ -9,3 +10,4 @@ print(food)
 food.remove(food[0])
 print(food)
 print("banana" in food)
+print(food[::-1])
