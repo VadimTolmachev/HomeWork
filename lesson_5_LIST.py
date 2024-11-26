@@ -1,13 +1,16 @@
-# СПИСОК
+# СПИСОКИ и методы индексации списков
+# Список - это изменяемая упорядоченная коллекция.
 food = ["apple", "coconud", "banana"]
 print(food)
 print(food[0])
-food[0] = "peach"
+food[0] = "peach"  # Замена значения по индексу
 print(food)
-food.append(True)
-food.extend(["String", 2])
+food.append(True) # Добавление значения в конец
+food.extend(["String", 2]) # Добавление нескольких значений в конец
 print(food)
-food.remove(food[0])
+food.remove(food[1]) # Удаление значения из списка по индексу
 print(food)
-print("banana" in food)
+a = food.pop(0) # Изятие(удаление) значение из списка по индексу с присвоением этого значения переменной.
+print(a)
+print("banana" in food)     #Выдает логическое значение True - присутствует в списке
 print(food[::-1])
