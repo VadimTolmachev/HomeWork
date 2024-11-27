@@ -5,7 +5,7 @@ x = 0
 dict_grades = {}
 for i in students:
     avg = sum(grades[x]) / len(grades[x])
-    print(i, avg)
+    # print(i, avg)
     dict_grades[i] = avg
     x += 1
 
