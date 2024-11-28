@@ -1,5 +1,6 @@
+# Определение простого и составного числа из указаного диапазона
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-primes = []
+primes = []  # Активация переменной типа List
 not_primes = []
 
 for i in range(len(numbers)):
@@ -7,6 +8,7 @@ for i in range(len(numbers)):
         continue
     is_primes = True
     for j in range(i):
+        # Если число делится без остатка (кроме 1 и самого себя) - значит составное
         if numbers[i] % numbers[j] == 0 and numbers[j] > 1:
             is_primes = False
             break
