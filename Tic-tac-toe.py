@@ -4,15 +4,13 @@ area = [['*', '*', '*'], ['*', '*', '*'], ['*', '*', '*']]
 
 # Функция проверки
 def check_symbol(sm):
-    x_row_bool_1 = True
-    x_row_bool_2 = True
-    x_row_bool_3 = True
-    x_count_bool_1 = True
-    x_count_bool_2 = True
-    x_count_bool_3 = True
+    x_row_bool = [True, True, True]
+    x_count_bool = [True, True, True]
+
     for x in range(3):
-        if area[0][x] != sm:
-            x_row_bool_1 = False
+        for j in range(3):
+            if area[j][x] != sm:
+                x_row_bool[j](False)
         if area[1][x] != sm:
             x_row_bool_2 = False
         if area[2][x] != sm:
@@ -21,17 +19,18 @@ def check_symbol(sm):
             x_count_bool_1 = False
         if area[x][1] != sm:
             x_count_bool_2 = False
-        if area[x][1] != sm:
+        if area[x][2] != sm:
             x_count_bool_3 = False
     if x_row_bool_1 or x_row_bool_2 or x_row_bool_3 or x_count_bool_1 or x_count_bool_2 or x_count_bool_3:
         return True
+    if
     return False
 
 
 def check_winner():
     if check_symbol('X'):
         return 'X'
-    elif check_symbol('0'):
+    if check_symbol('0'):
         return '0'
     return '*'
 
