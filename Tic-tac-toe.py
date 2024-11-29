@@ -6,24 +6,20 @@ area = [['*', '*', '*'], ['*', '*', '*'], ['*', '*', '*']]
 def check_symbol(sm):
     x_row_bool = [True, True, True]
     x_count_bool = [True, True, True]
-
+    # Проверка диагоналей
+    if area[0][0] == sm and area[1][1] == sm and area[2][2] == sm:
+        return True
+    if area[2][0] == sm and area[1][1] == sm and area[0][2] == sm:
+        return True
+    # Проверка строк и столбцов
     for x in range(3):
         for j in range(3):
             if area[j][x] != sm:
-                x_row_bool[j](False)
-        if area[1][x] != sm:
-            x_row_bool_2 = False
-        if area[2][x] != sm:
-            x_row_bool_3 = False
-        if area[x][0] != sm:
-            x_count_bool_1 = False
-        if area[x][1] != sm:
-            x_count_bool_2 = False
-        if area[x][2] != sm:
-            x_count_bool_3 = False
-    if x_row_bool_1 or x_row_bool_2 or x_row_bool_3 or x_count_bool_1 or x_count_bool_2 or x_count_bool_3:
+                x_row_bool[x] = False
+            if area[x][j] != sm:
+                x_count_bool[x] = False
+    if True in x_row_bool or True in x_count_bool:
         return True
-    if
     return False
 
 
