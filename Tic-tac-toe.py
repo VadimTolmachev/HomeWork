@@ -1,5 +1,7 @@
 # Крестики - нолики
 # Формироуем облясть (area)
+import random
+
 area = [['*', '*', '*'], ['*', '*', '*'], ['*', '*', '*']]
 
 
@@ -32,14 +34,22 @@ def check_winner():
         return '0'
     return '*'
 
-# # Функция бота
-# def run_bot():
-#     free_cell=[[],[],[]]
-#     for i in range(len(area)):
-#         for x in range(len(area[i])):
-#             if area[i][x] == '*':
-#                 free_cell[i].append(x)
-#     print(random())
+# Функция бота
+def run_bot(symbol = 0):
+    free_cell=[[],[],[]]
+    for i in range(len(area)):
+        for x in range(len(area[i])):
+            if area[i][x] == '*':
+                free_cell[i].append(x)
+    sim = random.choice(free_cell)
+    index_1 = free_cell.index(sim)
+    index_2 = random.choice(sim)
+    print(f'Бот выбрал строку (1, 2, 3) {index_1 + 1}')
+    print(f'Бот выбрал колонку (1, 2, 3) {index_2 + 1}')
+    area[index_1][index_2] = symbol
+
+    draw_area(greeting)
+    #print(index_1, index_2)
 
 
 # Функция отрисовки
@@ -56,15 +66,28 @@ greeting = 'Приветствую вас в игре крестики - нол�
 print(greeting)
 print('-' * len(greeting))
 draw_area(greeting)
+if int(input('Хотите играть с ботом? (1-ДА/0-НЕТ) ')) == 0:
+    bot_bool = False
+else:
+    bot_bool = True
+
+#print(bot_bool)
 # Вариант на 9 ходов
 for turn in range(1, 10):
     print(f'Ход: {turn}')
     if turn % 2 == 0:
-        print('Ходят нолики')
-#        run_bot()
         symbol = '0'
+        if bot_bool:
+            print('Ходят нолики (БОТ)')
+            run_bot()
+            continue
+        else:
+            print('Ходят нолики')
     else:
-        print('Ходят креситки')
+        if bot_bool:
+            print('Ходят креситки (ИГРОК)')
+        else:
+            print('Ходят креситки')
         symbol = 'X'
     row = int(input('Введите номер строки (1, 2, 3):')) - 1
     column = int(input('Введите номер столбца (1, 2, 3): ')) - 1
