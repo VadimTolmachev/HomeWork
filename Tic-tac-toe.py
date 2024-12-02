@@ -34,9 +34,10 @@ def check_winner():
         return '0'
     return '*'
 
+
 # Функция бота
-def run_bot(symbol = 0):
-    free_cell=[[],[],[]]
+def run_bot(symbol=0):
+    free_cell = [[], [], []]
     for i in range(len(area)):
         for x in range(len(area[i])):
             if area[i][x] == '*':
@@ -49,7 +50,7 @@ def run_bot(symbol = 0):
     area[index_1][index_2] = symbol
 
     draw_area(greeting)
-    #print(index_1, index_2)
+    # print(index_1, index_2)
 
 
 # Функция отрисовки
@@ -61,7 +62,8 @@ def draw_area(centre_greeting=''):
         print(' ' * point_, *i)
     print(' ')
 
-#Запуск игры + Приветствие.
+
+# Запуск игры + Приветствие.
 greeting = 'Приветствую вас в игре крестики - нолики'
 print(greeting)
 print('-' * len(greeting))
@@ -71,7 +73,7 @@ if int(input('Хотите играть с ботом? (1-ДА/0-НЕТ) ')) == 
 else:
     bot_bool = True
 
-#print(bot_bool)
+# print(bot_bool)
 # Вариант на 9 ходов
 for turn in range(1, 10):
     print(f'Ход: {turn}')
