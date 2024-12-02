@@ -1,8 +1,9 @@
-#Крестики - нолики
-#Формироуем облясть (area)
+# Крестики - нолики
+# Формироуем облясть (area)
 area = [['*', '*', '*'], ['*', '*', '*'], ['*', '*', '*']]
 
-# Функция проверки
+
+# Функция проверки по символам
 def check_symbol(sm):
     row_bool = [True, True, True]
     count_bool = [True, True, True]
@@ -23,12 +24,22 @@ def check_symbol(sm):
     return False
 
 
+# Функция проверки на победителя
 def check_winner():
     if check_symbol('X'):
         return 'X'
     if check_symbol('0'):
         return '0'
     return '*'
+
+# # Функция бота
+# def run_bot():
+#     free_cell=[[],[],[]]
+#     for i in range(len(area)):
+#         for x in range(len(area[i])):
+#             if area[i][x] == '*':
+#                 free_cell[i].append(x)
+#     print(random())
 
 
 # Функция отрисовки
@@ -37,19 +48,20 @@ def draw_area(centre_greeting=''):
     if len(centre_greeting) / 2 - 5 > 0:
         point_ = int(len(centre_greeting) / 2 - 5)
     for i in area:
-        print(' ' * point_,*i)
+        print(' ' * point_, *i)
     print(' ')
 
-
+#Запуск игры + Приветствие.
 greeting = 'Приветствую вас в игре крестики - нолики'
 print(greeting)
 print('-' * len(greeting))
 draw_area(greeting)
-
-for turn in range(1,10):
+# Вариант на 9 ходов
+for turn in range(1, 10):
     print(f'Ход: {turn}')
     if turn % 2 == 0:
         print('Ходят нолики')
+#        run_bot()
         symbol = '0'
     else:
         print('Ходят креситки')
