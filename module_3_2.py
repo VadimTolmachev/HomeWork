@@ -6,7 +6,7 @@ def checking_email(addres):
     return False
 
 
-def send_email(message, recipient, sender="university.help@gmail.com"):
+def send_email(message, recipient, *, sender="university.help@gmail.com"):
     if not checking_email(recipient):
         print(f'Невозможно отправить письмо на адрес {recipient}')
     elif not checking_email(sender):
