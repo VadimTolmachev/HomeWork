@@ -1,5 +1,6 @@
 nums = [1, 4, 5, 3, 2, 7, 5, 9, 6, 8, 0]
 
+
 # Пузырьковая функция сортировки
 def bubble_sort(ls):
     swapped = True
@@ -14,9 +15,6 @@ def bubble_sort(ls):
     return count1
 
 
-# print(bubble_sort(nums))
-# print(nums)
-
 # Функция сортировки перебором
 def selection_sort(ls):
     for i in range(len(ls)):
@@ -27,5 +25,8 @@ def selection_sort(ls):
         ls[i], ls[lowest] = ls[lowest], ls[i]
 
 
-selection_sort(nums)
-print(nums)
+if __name__ == '__main__':
+    # print(bubble_sort(nums))
+    # print(nums)
+    selection_sort(nums)
+    print(nums)
