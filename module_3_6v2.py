@@ -19,20 +19,31 @@ def new_sum(*args):
         return
     # если значение список(list), кортеж(tuple) или множество(set) - рекурсия
     elif isinstance(values, list) or isinstance(values, tuple) or isinstance(values, set):
+        if isinstance(values, list):
+            print(f'длинна списка - {len(values)} - {values}')
+        elif isinstance(values, tuple):
+            print(f'длинна кортэжа - {len(values)} - {values}')
+        else:
+            print(f'длинна множества - {len(values)} - {values}')
         for i in values:
             new_sum(i)
     # если словарь(dict) - рекурсия по значению и по ключам
     elif isinstance(values, dict):
+        print(f'длинна словаря -{len(values)} - {values}')
         for key, val in values.items():
             new_sum(val)
-            new_sum(key)
     # если строковое значение суммируем длину строк
     elif isinstance(values, str):
-        # print(f'длина строки - {len(values)} - {values}')
+        print(f'длина строки - {len(values)} - {values}')
         len_str += len(values)
 
     return
 
-new_sum(data_structure)
+def main():
+    new_sum(data_structure)
 
-print(f'Сумма чисел - {sum_}, сумма строк - {len_str}, всего - {sum_ + len_str}')
+    print(f'Сумма чисел - {sum_}, сумма строк - {len_str}, всего - {sum_ + len_str}')
+
+
+if __name__ == '__main__':
+    main()
