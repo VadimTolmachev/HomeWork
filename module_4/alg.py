@@ -29,8 +29,21 @@ def selection_sort(ls):
         ls[i], ls[lowest] = ls[lowest], ls[i]
 
 
+def insertion_sort(ls):
+    for i in range(1, len(ls)):
+        item = ls[i]
+        j = i - 1
+        while j >= 0 and ls[j] > item:
+            ls[j + 1] = ls[j]
+            j -= 1
+        ls[j + 1] = item
+
+
 if __name__ == '__main__':
-    print(bubble_sort(nums))
+    # print(bubble_sort(nums))
     # print(nums)
     # selection_sort(nums)
-    # print(nums)
+    insertion_sort(nums)
+    print(nums)
+
+
