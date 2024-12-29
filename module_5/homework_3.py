@@ -2,7 +2,8 @@ def checking_the_method(v1_int, v2_house):
     if isinstance(v1_int, int) and isinstance(v2_house, House):
         return True
     else:
-        return print(f'Переменные не прошли проверку на принадлежность классу {v1_int}, {v2_house}')
+        print(f'Переменные не прошли проверку на принадлежность классу {v1_int}, {v2_house}')
+        return False
 
 
 class House:
@@ -36,6 +37,7 @@ class House:
 
     def __lt__(self, other):
         if checking_the_method(other.floors, other):
+            print(other.floors)
             return self.floors < other.floors
 
     def __le__(self, other):
@@ -59,10 +61,11 @@ class House:
             return self.floors + value
 
     def __radd__(self, value):
-        return self.floors + value
-    #
-    # def __iadd__(self, value):
-    #     self.__add__(value)
+        return self.__add__(value)
+
+    def __iadd__(self, value):
+        return self.__add__(value)
+
 
 h1 = House('ЖК Эльбрус', 10)
 h2 = House('ЖК Акация', 20)
