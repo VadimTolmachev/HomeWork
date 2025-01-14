@@ -1,4 +1,5 @@
 class Human:
+    head = True
     def __init__(self, name, age):
         self.name = name
         self.age = age
@@ -18,14 +19,15 @@ class Human:
         return self.age
 
 den = Human('Денис', 22)
-macks = Human('Максим', 22)
+maks = Human('Максим', 22)
 
 den.age = 23
 print(len(den))
-del den
+# del den
 # print(den.name, den.age)
 # print(macks.name, macks.age)
 #den.say_info()
 # macks.say_info()
-macks.birthday()
-macks.say_info()
+maks.birthday()
+maks.say_info()
+print(Human.head)
